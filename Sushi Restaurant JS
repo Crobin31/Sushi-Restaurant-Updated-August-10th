@@ -1,0 +1,100 @@
+let total = 0; 
+let totalinfo = document.querySelector("#total-box"); 
+let iteminfo = document.querySelector("#item-box"); 
+const sushiprices = [5.99, 3.99, 4.99, 1.99]; 
+const sushiitems = [0, 0, 0, 0]; 
+const orderhistory = document.querySelector(".scroll-box");
+const orders = []; 
+
+function ordersDisplay(x){
+  return x.join("<br>");
+}
+
+
+function addsashimi(){
+  total += sushiprices[0]; // add to the number
+  sushiitems[0] += 1; 
+  totalinfo.innerHTML = total.toFixed(2); // update the display with 2 decimal places
+  iteminfo.innerHTML = sushiitems; 
+  orders.push("Sashimi x1"); 
+  orderhistory.innerHTML = ordersDisplay(orders); 
+}
+
+function removesashimi(){
+  if (sushiitems[0] > 0){
+    sushiitems[0] -= 1; 
+    total -= sushiprices[0];
+    if (total < 0) total = 0;
+    totalinfo.innerHTML = total.toFixed(2);
+    iteminfo.innerHTML = sushiitems;
+    const i = orders.lastIndexOf("Sashimi x1");
+    if (i !== -1) orders.splice(i, 1);
+    orderhistory.innerHTML = ordersDisplay(orders); 
+  }
+}
+
+function addnigiri(){
+  total += sushiprices[1]; // add to the number
+  totalinfo.innerHTML = total.toFixed(2); // update the display with 2 decimal places
+  sushiitems[1] += 1; 
+  iteminfo.innerHTML = sushiitems; 
+  orders.push("Nigiri x1"); 
+  orderhistory.innerHTML = ordersDisplay(orders); 
+}
+
+function removenigiri(){
+  if (sushiitems[1] > 0){
+    sushiitems[1] -= 1; 
+    total -= sushiprices[1];
+    if (total < 0) total = 0;
+    totalinfo.innerHTML = total.toFixed(2);
+    iteminfo.innerHTML = sushiitems; 
+    const i = orders.lastIndexOf("Nigiri x1");
+    if (i !== -1) orders.splice(i, 1);
+    orderhistory.innerHTML = ordersDisplay(orders); 
+  }
+}
+
+function addsroll(){
+  total += sushiprices[2]; // add to the number
+  totalinfo.innerHTML = total.toFixed(2); // update the display with 2 decimal places
+  sushiitems[2] += 1; 
+  iteminfo.innerHTML = sushiitems; 
+  orders.push("Sushi Roll x1"); 
+  orderhistory.innerHTML = ordersDisplay(orders); 
+}
+
+function removesroll(){
+  if (sushiitems[2] > 0){
+    sushiitems[2] -= 1; 
+    total -= sushiprices[2];
+    if (total < 0) total = 0;
+    totalinfo.innerHTML = total.toFixed(2);
+    iteminfo.innerHTML = sushiitems; 
+    const i = orders.lastIndexOf("Sushi Roll x1");
+    if (i !== -1) orders.splice(i, 1);
+    orderhistory.innerHTML = ordersDisplay(orders); 
+  }
+}
+
+function addo(){
+  total += sushiprices[3]; // add to the number
+  totalinfo.innerHTML = total.toFixed(2); // update the display with 2 decimal places
+  sushiitems[3] += 1; 
+  iteminfo.innerHTML = sushiitems;
+  orders.push("Oysters x1"); 
+  orderhistory.innerHTML = ordersDisplay(orders); 
+}
+
+function removeo(){
+  if (sushiitems[3] > 0){
+    sushiitems[3] -= 1; 
+    total -= sushiprices[3];
+    if (total < 0) total = 0;
+    totalinfo.innerHTML = total.toFixed(2);
+    iteminfo.innerHTML = sushiitems; 
+    const i = orders.lastIndexOf("Oysters x1");
+    if (i !== -1) orders.splice(i, 1);
+    orderhistory.innerHTML = ordersDisplay(orders); 
+  }
+}
